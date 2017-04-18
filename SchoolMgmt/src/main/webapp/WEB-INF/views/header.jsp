@@ -19,9 +19,10 @@
   </head>
   <body >
     
-   <div id="headerall">
+<!--    <div id="headerall"> -->
+
     <nav class="navbar navbar-default">
-      <div class="container">
+      
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -45,16 +46,15 @@
             <li><a href="<%=request.getContextPath() %>/users/logout">Log Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
+     
     </nav>
     
-    <header id="header">
-      <div class="container">
-        <div class="row">
+    <div id="header">
+
           <div class="col-md-10">
              <h2><span class="glyphicon glyphicon-book" aria-hidden="true"></span>  ABC School  <small>Education first</small></h2>
           </div>
-          <div class="col-md-2">
+         <div class="col-md-2"> 
 					<form class="navbar-form" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search"
@@ -68,12 +68,12 @@
 					</form>
 				</div>
         
-        </div>
-      </div>
+ 
+ 
       
-    </header>
-    
-    </div> 
+    </div>
+<!--     </div> -->
+
     
     <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>

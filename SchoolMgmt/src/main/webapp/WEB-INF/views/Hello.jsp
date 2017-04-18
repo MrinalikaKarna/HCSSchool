@@ -24,22 +24,18 @@
 </head>
 
 <body>
-<div class="row wrap">
-    <div class="col-sm-3">
-        <div class="row">
+<div>
+    <div class="col-md-3">
+        
             <div class="col-xs-12" id="announcementdiv">
              <h4>Announcements</h4>
 
-
-
-            </div>
         </div>
     </div>
-    <div class="col-sm-9">
-        <div class="row">
+    <div class="col-md-9">
             <div class="col-xs-12" id="newseventdiv">
               <h4>News n' Events</h4>
-            </div>
+       
         </div>
 
     </div>

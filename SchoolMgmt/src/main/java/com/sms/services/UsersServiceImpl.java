@@ -104,4 +104,8 @@ public class UsersServiceImpl implements UsersServices {
 		return usersDao.saveUserMarksUpdateDetails(marksDetails);
 	}
 
+	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid) {
+		return usersDao.getUsersMarksDetails(userid, classid, examid);
+	}
+
 }

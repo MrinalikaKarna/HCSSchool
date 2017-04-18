@@ -364,4 +364,25 @@ public class UsersDaoImpl implements UsersDao {
 		}
 	}
 
+	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid) {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		String hql = "from com.sms.model.MarksDetails as u where u.userDetails.userid=? and u.classDetails.classid=? and u.examDetails.examid=?";
+		
+			Query query = session1.createQuery(hql);
+			query.setParameter(0, userid);
+			query.setParameter(1, classid);
+			query.setParameter(2, examid);
+			MarksDetails marksDetails = (MarksDetails) query.uniqueResult();
+	   try {
+		    tx.commit();
+			session1.close();
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+		}
+		return marksDetails;
+	}
+
 }

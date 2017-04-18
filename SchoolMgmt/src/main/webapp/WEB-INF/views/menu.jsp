@@ -32,10 +32,9 @@
 </head>
 
 <body>
-<div class="container" id="menubody">
- <div class="row">
-   <div class="col-md-3">
-				<div class="list-group">
+<div id="menubody">
+
+	
 				    <a href="<%=request.getContextPath() %>/users/Hello?method=GET" class="list-group-item" id="menu1" >
 				    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> News n' Events </a>
 					<a href="<%=request.getContextPath() %>/users/myprofile?method=GET&param1=${UserDetails.userModel.mobilenumber}" class="list-group-item" id="menu2">
@@ -44,21 +43,19 @@
 						<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Report Card</a> 
 					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu4">
 						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Leaves and Calendar</a>
-					 <a href="#" class="list-group-item" id="menu5">
-						<span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Creative Corner</a>
-					<a href="<%=request.getContextPath() %>/users/studentadmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu6">
+					<a href="<%=request.getContextPath() %>/users/studentadmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu5">
 						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Student's Admin Activities</a>
 					<a href="<%=request.getContextPath() %>/users/teacheradmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu6">
 						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Teacher's Admin Activities</a>
-					<a href="<%=request.getContextPath() %>/users/supportadmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu6">
-						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Support's Admin Activities</a>
+					<a href="<%=request.getContextPath() %>/users/supportadmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu7">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Support's Admin Activities</a>
 						 
-				</div>
+			
 			</div> 
- </div>
-</div>
 
-<%-- <script type="text/javascript">  --%>
+
+
+ 
 
 <!-- //Hide menu according to user role... Activate below code when needed... Below code was successful.. -->
 
@@ -75,7 +72,34 @@
 <!-- //  break; -->
 <!-- // } -->
 
-<%--  </script>  --%>
+<script type="text/javascript">
+$(document).ready(function(){ 
+switch("${MenuStatus}") {
+ case "myprofile":
+    $('#menu2').css('background-color','grey') 
+  break; 
+ case "reportcard":
+   $('#menu3').css('background-color','grey') 
+	break;
+ case "Leaves":
+   $('#menu4').css('background-color','grey') 
+   break;
+ case "News":
+   $('#menu1').css('background-color','grey') 
+	break;
+ case "StudentAdmin":
+    $('#menu5').css('background-color','grey') 
+	break;
+ case "TeacherAdmin":
+	$('#menu6').css('background-color','grey') 
+	break;
+ case "SupportAdmin":
+    $('#menu7').css('background-color','grey') 
+	break;
+ }
+});
+
+ </script> 
 
 <script>
 

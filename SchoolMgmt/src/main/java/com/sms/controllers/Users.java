@@ -1,5 +1,6 @@
 package com.sms.controllers;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +32,7 @@ import com.sms.model.ExamDetails;
 import com.sms.model.Leaves;
 import com.sms.model.MarksDetails;
 import com.sms.model.NewsEvent;
+import com.sms.model.ResultParams;
 import com.sms.model.UserDetails;
 import com.sms.model.UsersModel;
 import com.sms.model.VisualArtStore;
@@ -50,6 +52,7 @@ public class Users {
 	@RequestMapping(value="/page", method=RequestMethod.GET)
 	public ModelAndView getPage(){
 		ModelAndView view = new ModelAndView("Hello");
+		
 		return view;
 	}
 	
@@ -81,6 +84,7 @@ public class Users {
 	@RequestMapping(value="/Hello", method=RequestMethod.GET)
 	public String showWelcome(ModelMap model){
 		model.put("Hello", new UsersModel());
+		model.addAttribute("MenuStatus","News");
 		return "Hello";	
 	}
 	
@@ -181,6 +185,7 @@ public class Users {
 		UserDetails usersModelDetail = (UserDetails)usersServices.getUserDetails(mnumber);
 		//newsession.setAttribute("UsersModelDetail", usersModelDetail);
 		model.addAttribute("UsersModelDetail",usersModelDetail);
+		model.addAttribute("MenuStatus","myprofile");
          return "myprofile";
          }
 	
@@ -188,27 +193,50 @@ public class Users {
 	
 	
 	@RequestMapping(value="/reportcard",method=RequestMethod.GET)
-	public String showMyReportCard(HttpSession newsession)
-	{
+	public String showMyReportCard(ModelMap model)
+	{    List<ClassDetails> classDetails = usersServices.getClassDetailsList();
+         model.addAttribute("ClassDetails", classDetails);
+         List<ExamDetails> examDetails = usersServices.getExamDetailsList();
+ 	     model.addAttribute("ExamDetails", examDetails);
+ 	     model.addAttribute("MenuStatus","reportcard");
          return "reportcard";
          }
 	
 	
+	@RequestMapping(value="/getResultDetails",method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> getResultDetails(@RequestBody ResultParams resultparams) 
+	{   Map<String,Object> map = new HashMap<String,Object>(); 
+	    int userid = resultparams.getUserid();
+	    int classid = resultparams.getClassid();
+	    int examid = resultparams.getExamid();
+		MarksDetails marksDetails = usersServices.getUsersMarksDetails(userid,classid,examid);
+		if (marksDetails!=null){
+			map.put("MarksDetails", marksDetails);
+			map.put("message", "Got Data");
+
+		}else{
+			map.put("message", "No Data");
+	
+		}
+		return map;
+       }
+	
 	@RequestMapping(value="/studentadmin",method=RequestMethod.GET)
 	public String showStudentAdmin(ModelMap model)
 	{    model.put("newsEventData", new NewsEvent());
+	     model.addAttribute("MenuStatus","StudentAdmin");
          return "studentadmin";
          }
 	
 	@RequestMapping(value="/teacheradmin",method=RequestMethod.GET)
-	public String showTeacherAdmin(HttpSession newsession)
-	{
+	public String showTeacherAdmin(ModelMap model)
+	{    model.addAttribute("MenuStatus","TeacherAdmin");
          return "teacheradmin";
          }
 	
 	@RequestMapping(value="/supportadmin",method=RequestMethod.GET)
-	public String showSupportAdmin(HttpSession newsession)
-	{
+	public String showSupportAdmin(ModelMap model)
+	{    model.addAttribute("MenuStatus","SupportAdmin");
          return "supportadmin";
          }
 	
@@ -273,7 +301,8 @@ public class Users {
 	{   
 		model.addAttribute("userId", userid);
 		model.addAttribute("userLeaveData", new Leaves());
-         return "leaves";
+		model.addAttribute("MenuStatus","Leaves");
+        return "leaves";
          }
 	
 	

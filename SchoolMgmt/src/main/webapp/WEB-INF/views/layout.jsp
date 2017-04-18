@@ -34,10 +34,10 @@
 		
 	</div>
 	<div class="row" id="contentbody">
-		<div class="col-md-3">
+		<div class="col-md-2">
 		<tiles:insertAttribute name="menu" />
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-10">
 		<tiles:insertAttribute name="body" />
 		</div>
 	</div>
@@ -51,22 +51,8 @@
 </div>
 
     
-    <script>
-    $ (Document). ready (function () {
-
-    	$ ('. PageAction'). click (function (e) {
-    	LoadPage (e)
-    	});
-
-    	function LoadPage (e) {
-    	e.preventDefault ();
-    	console.log (e)
-    	console.log (e.currentTarget.pathname);
-    	$ ('#baselayout').children (). remove ();
-    	$ ('#baselayout').load ("baselayout?" + e.currentTarget.pathname);
-    	}
-
-    	});
+<script>
+   
 
 </script>
   </body>

@@ -76,9 +76,7 @@
 
 	   
      $(".updateBtn").click(function(){
-//     	var currentRow = $(this).closest('tr');
-//            $(this).closest('tr').find('#Update').css('background-color', 'red');
-        var reference = this;
+
         $.ajax({
         	type:"POST",
             url:"addmarksdetails",

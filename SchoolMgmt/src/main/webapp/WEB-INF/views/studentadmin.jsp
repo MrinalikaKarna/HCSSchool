@@ -14,7 +14,7 @@
 	rel="stylesheet">
 
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
 <link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
 
 <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
@@ -22,8 +22,8 @@
 
 <body>
 <!--   <div class="container text-left"> -->
-    <div class="row">
-        <div class="col-lg-12">
+    
+        <div class="col-md-12">
             
             <p> 
                 <button data-toggle="modal" data-target="#newsModal" class="btn btn-squared-default btn-primary">
@@ -32,7 +32,6 @@
                     Create<br/>
                      News
                 </button>
-                
                 <button data-toggle="modal" data-target="#eventModal" class="btn btn-squared-default btn-primary">
                     <i class="fa fa-calendar fa-2x"></i>
                     <br />
@@ -53,7 +52,7 @@
                 </button>
 
             </p>
-        </div>
+       
     </div>     
 <!-- </div> -->
 

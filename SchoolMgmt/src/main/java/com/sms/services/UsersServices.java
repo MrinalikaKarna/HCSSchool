@@ -33,4 +33,5 @@ public interface UsersServices {
 	public boolean save(VisualArtStore uploadFile);
 	public boolean save(BlogPostStore blogpostFile);
 	public boolean saveUserMarksUpdateDetails(MarksDetails marksDetails);
+	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid);
 }

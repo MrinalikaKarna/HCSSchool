@@ -25,7 +25,7 @@ article, aside, details, figcaption, figure, header, hgroup,
   right: 0px;
   bottom: 0px;
   left: 0px;
-  height:20px; 
+  height:15px; 
   background-color: #333;
   text-align: center;
   z-index: 999 !important;
@@ -1472,7 +1472,7 @@ hr {
 }
 
 .h1, .h2, .h3, h1, h2, h3 {
-	margin-top: 20px;
+	margin-top: 12px;
 	margin-bottom: 10px
 }
 
@@ -1518,7 +1518,7 @@ hr {
 }
 
 p {
-	margin: 0 0 10px
+	margin: 20px 20px 20px
 }
 
 .lead {
@@ -1848,8 +1848,8 @@ pre code {
 }
 
 .container {
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 0px;
+	padding-left: 0px;
 	margin-right: auto;
 	margin-left: auto
 }
@@ -1894,8 +1894,9 @@ pre code {
 	.col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
 	position: relative;
 	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px
+	padding-right: 4px;
+	padding-left: 0px;
+	
 }
 
 .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3,
@@ -5802,8 +5803,9 @@ to {
 	display: block;
 	padding: 10px 15px;
 	margin-bottom: -1px;
-	background-color: #fff;
-	border: 1px solid #ddd
+	background-color: #333333;
+	border: 1px solid #ddd;
+	border-left-width: 0px;
 }
 
 .list-group-item:first-child {
@@ -5813,12 +5815,12 @@ to {
 
 .list-group-item:last-child {
 	margin-bottom: 0;
-	border-bottom-right-radius: 0px;
+	-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px
 }
 
 a.list-group-item, button.list-group-item {
-	color: #555
+	color: #fff
 }
 
 a.list-group-item .list-group-item-heading, button.list-group-item .list-group-item-heading

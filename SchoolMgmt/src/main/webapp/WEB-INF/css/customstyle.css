@@ -100,17 +100,24 @@ body {
 }
 
 #header {
-	position:fixed;
 	background-color: #333333 !important;
+	width:100% !important;
 	border-color: #e7290c !important;
 	color: white !important;
-	padding-top: 7px;
-	padding-bottom: 8px;
-	margin-bottom: 10px;
-	position: absolute; ! important;
+	position: absolute ! important;
 	top: 33px !important;
-	left: 0 !important;
-	right: 0 !important;
+
+}
+
+#containernew{
+    padding-right: 2px;
+	padding-left: 0px;
+	margin-right: auto;
+	margin-left: auto
+}
+
+.col-md-3{
+	padding-left: 0px !important;
 }
 
 #headerall {
@@ -125,13 +132,13 @@ body {
 
 #contentbody {
 	position: relative !important;
-	top: 100px;
+	top: 88px;
 	left: 0 !important;
-	background-color: !important;
+	background-color: #ffffff !important;
 }
 
 #menubody {
-	
+	background-color: #400040;
 }
 
 .btn-squared-default {
