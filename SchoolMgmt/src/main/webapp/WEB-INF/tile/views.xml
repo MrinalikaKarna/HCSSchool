@@ -19,7 +19,7 @@
   <put-attribute name="body" value="/WEB-INF/views/leaves.jsp" />
  </definition>
  
-  <definition name="studentadmin" extends="baseLayout">
+ <definition name="studentadmin" extends="baseLayout">
   <put-attribute name="body" value="/WEB-INF/views/studentadmin.jsp" />
  </definition>
  

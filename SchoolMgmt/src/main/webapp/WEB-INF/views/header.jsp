@@ -15,6 +15,10 @@
     
     <link href="${pageContext.servletContext.contextPath}/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.servletContext.contextPath}/css/customstyle.css" type="text/css" rel="stylesheet">  
+    
+    <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/js/scripts.js"></script>
 
   </head>
   <body >
@@ -34,10 +38,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<%=request.getContextPath() %>/users/Hello?method=GET">My Site</a></li>
-            <li><a href="#about">Image Gallery</a></li>
-            <li><a href="<%=request.getContextPath() %>/users/creativecorner?method=GET&param1=${UserDetails.userid}">Creative Corner</a></li>
-            <li><a href="#about">Forums</a></li>
+            <li id="Tab1"><a href="<%=request.getContextPath() %>/users/Hello?method=GET">My Site</a></li>
+            <li id="Tab2"><a href="#about">Image Gallery</a></li>
+            <li id="Tab3"><a href="<%=request.getContextPath() %>/users/creativecorner?method=GET&param1=${UserDetails.userid}">Creative Corner</a></li>
+            <li id="Tab4"><a href="#about">Forums</a></li>
             
           </ul>
           
@@ -75,9 +79,22 @@
 <!--     </div> -->
 
     
-    <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
-    <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.servletContext.contextPath}/js/scripts.js"></script>
+
+    
+<script type="text/javascript">
+$(document).ready(function(){ 
+switch("${TabStatus}") {
+ case "hello":
+    $('#Tab1').css('background-color','#db340a') 
+  break; 
+ case "creativecorner":
+   $('#Tab3').css('background-color','#db340a')
+	break;
+  };
+
+});
+
+ </script> 
 
 </body>
   </html>

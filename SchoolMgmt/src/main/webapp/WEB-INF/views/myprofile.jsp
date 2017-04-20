@@ -15,9 +15,9 @@
 </head>
 <body>
 	<div class="panel panel-default">
-		<div class="panel-heading main-color-bg">
-			<h2 class="panel-title">My Profile</h2>
-		</div>
+<!-- 		<div class="panel-heading main-color-bg"> -->
+<!-- 			<h2 class="panel-title">My Profile</h2> -->
+<!-- 		</div> -->
 		<div class="panel-body" align="center">
 			<table class="table table-striped">
 

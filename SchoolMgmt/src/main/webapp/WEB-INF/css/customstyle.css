@@ -94,9 +94,13 @@ body {
 }
 
 .main-color-bg {
-	background-color: #f05c0c !important;
-	border-color: #e7290c !important;
+	background-color: #665c57 !important;
+	border-color: #808080!important;
 	color: #ffffff;
+}
+
+.imgContainer{
+    float:left;
 }
 
 #header {

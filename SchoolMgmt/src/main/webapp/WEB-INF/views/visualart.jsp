@@ -17,6 +17,7 @@
 	
 	rel="stylesheet">
     <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/js/customstyle.min.js"></script>
     <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>
    
 </head>
@@ -98,7 +99,7 @@ $(function() {
 	
     <c:forEach items="${ImageList}" var="myImage" varStatus="i" >
    
-    newdiv = '<div class="col-md-2">' + '<div class="well">' + '<a href="#" class="showme">' + '<img class="thumbnail img-responsive" alt="Bootstrap template" src= "data:image/jpeg;base64,${myImage}" width="200" height="150" />'
+    newdiv = '<div class="col-md-3">' + '<div class="well">' + '<a href="#" class="showme">' + '<img alt="Bootstrap template" src= "data:image/jpeg;base64,${myImage}" width="200" height="150" />'
     + '</a>'+ '<h5 id="myheader">' + '${VisualData[i.index].userDetails.firstname} ${VisualData[i.index].userDetails.lastname}' + '</h5>' + '<h5>' + '${VisualData[i.index].userDetails.classDetails.classname}' 
     + '</h5>' + '</div>' + '</div>' 
 

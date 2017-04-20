@@ -84,6 +84,7 @@ public class Users {
 	@RequestMapping(value="/Hello", method=RequestMethod.GET)
 	public String showWelcome(ModelMap model){
 		model.put("Hello", new UsersModel());
+		model.addAttribute("TabStatus","hello");
 		model.addAttribute("MenuStatus","News");
 		return "Hello";	
 	}
@@ -173,7 +174,7 @@ public class Users {
 	
 	@RequestMapping(value="/creativecorner", method=RequestMethod.GET)
 	public String showCreativeCorner(ModelMap model){
-		
+		model.addAttribute("TabStatus","creativecorner");
 		return "creativecorner";
 		
 		
