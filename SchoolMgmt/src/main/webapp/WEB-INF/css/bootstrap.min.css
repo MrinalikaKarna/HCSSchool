@@ -26,7 +26,7 @@ article, aside, details, figcaption, figure, header, hgroup,
   bottom: 0px;
   left: 0px;
   height:15px; 
-  background-color: #333;
+  background-color: #061718;
   text-align: center;
   z-index: 999 !important;
 }
@@ -1661,12 +1661,13 @@ a.bg-danger:focus, a.bg-danger:hover {
 }
 
 .page-header {
+	height:30px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #bbd5d7;
+	padding-left: 5px;
+	padding-bottom: 9px;
+	margin: 20px 0 20px;
 	
-	height:80px;
-	
-	
-	background-color: #540025;
-	border-bottom: 5px solid #eee;
 	
 }
 
@@ -2749,7 +2750,8 @@ table td[class*=col-], table th[class*=col-] {
 
 .table-responsive {
 	min-height: .01%;
-	overflow-x: auto
+	overflow-x: auto;
+	padding-left: 15px;
 }
 
 @media screen and (max-width:767px) {
@@ -5803,8 +5805,8 @@ to {
 	display: block;
 	padding: 10px 15px;
 	margin-bottom: -1px;
-	background-color: #333333;
-	border: 1px solid #ddd;
+	background-color: #061718;
+/* 	border: 1px solid #ddd; */
 	border-left-width: 0px;
 }
 

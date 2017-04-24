@@ -27,7 +27,9 @@
     <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4 class="text-center">Visual Art Compilation <button data-toggle="modal" data-target="#visualArtUploadModal" class="btn btn-primary pull-right">
+           
+            <h4 class="text-center"><button class="btn btn-primary pull-left">
+                    <span class="glyphicon glyphicon-home " aria-hidden="true"></span></button>Visual Art Compilation <button data-toggle="modal" data-target="#visualArtUploadModal" class="btn btn-primary pull-right">
                     <span class="glyphicon glyphicon-cloud-upload " aria-hidden="true"></span></button></h4>
         </div>
         

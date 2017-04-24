@@ -35,6 +35,14 @@
   <put-attribute name="body" value="/WEB-INF/views/adduserdetails.jsp" />
  </definition>
  
+  <definition name="attendancesheet" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/attendancesheet.jsp" />
+ </definition>
+ 
+ <definition name="studentattendancedetails" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/studentattendancedetails.jsp" />
+ </definition>
+ 
  <definition name="uploadmarks" extends="baseLayout">
   <put-attribute name="body" value="/WEB-INF/views/uploadmarks.jsp" />
  </definition>
@@ -43,10 +51,8 @@
   <put-attribute name="body" value="/WEB-INF/views/marksdetails.jsp" />
  </definition>
  
- <definition name="login" extends="baseLayout2">
-  <put-attribute name="header" value="" />
-  <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
-  <put-attribute name="footer" value="" />
+ <definition name="login" extends="baseLayout3">
+  <put-attribute name="loginbody" value="/WEB-INF/views/login.jsp" />
  </definition>
  
  <definition name="creativecorner" extends="baseLayout2">

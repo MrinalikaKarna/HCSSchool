@@ -43,6 +43,14 @@
 						<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Report Card</a> 
 					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu4">
 						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Leaves and Calendar</a>
+					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu8">
+						<span class="glyphicon glyphicon-th" aria-hidden="true"></span> Time Table</a>
+					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu9">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Teacher's Feedback</a>
+					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu10">
+						<span class="glyphicon glyphicon-tower" aria-hidden="true"></span> My Achievements</a>
+					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu11">
+						<span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Activity Tracker</a>
 					<a href="<%=request.getContextPath() %>/users/studentadmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu5">
 						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Student's Admin Activities</a>
 					<a href="<%=request.getContextPath() %>/users/teacheradmin?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu6">
@@ -76,25 +84,25 @@
 $(document).ready(function(){ 
 switch("${MenuStatus}") {
  case "myprofile":
-    $('#menu2').css('background-color','grey') 
+    $('#menu2').css('background-color','#155255') 
   break; 
  case "reportcard":
-   $('#menu3').css('background-color','grey') 
+   $('#menu3').css('background-color','#155255') 
 	break;
  case "Leaves":
-   $('#menu4').css('background-color','grey') 
+   $('#menu4').css('background-color','#155255') 
    break;
  case "News":
-   $('#menu1').css('background-color','grey') 
+   $('#menu1').css('background-color','#155255') 
 	break;
  case "StudentAdmin":
-    $('#menu5').css('background-color','grey') 
+    $('#menu5').css('background-color','#155255') 
 	break;
  case "TeacherAdmin":
-	$('#menu6').css('background-color','grey') 
+	$('#menu6').css('background-color','#155255') 
 	break;
  case "SupportAdmin":
-    $('#menu7').css('background-color','grey') 
+    $('#menu7').css('background-color','#155255') 
 	break;
  }
 });

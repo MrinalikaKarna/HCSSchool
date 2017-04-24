@@ -10,56 +10,46 @@
 <link
 	href="${pageContext.servletContext.contextPath}/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="${pageContext.servletContext.contextPath}/css/customcss.css"
+<link href="${pageContext.servletContext.contextPath}/css/customstyle.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
 </head>
 <body>
-	<div class="panel panel-default">
-		<div class="panel-heading main-color-bg">
-			<h2 class="panel-title">Admin Activities</h2>
-		</div>
-		<div class="panel-body" align="center">
-                 <div class="row">
-                   <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="glyphicon glyphicon-floppy-open"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left"><a href="<%=request.getContextPath() %>/users/adduserdetails?method=GET&param2=${UserDetails.userid}">Upload User Details</a></span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+
+    
+        	<div class="container-fluid">
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Support Staff's Administration Activities
+                        </h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href=""> Support Staff's Admin</a>
+                            </li>
+                           
+                        </ol>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="glyphicon glyphicon-floppy-open"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left"><a href="<%=request.getContextPath() %>/users/uploadmarks?method=GET&param2=${UserDetails.userid}">Upload Marks</a></span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                </div>
+            
+            <p> 
+                <a href="<%=request.getContextPath() %>/users/adduserdetails?method=GET&param2=${UserDetails.userid}">
+                <button data-toggle="modal" class="btn btn-squared-default btn-primary"> <i class="fa fa-tasks fa-2x"></i>
+                    <br/>
+                    Add<br/>
+                     User
+                </button></a>
+                <a href="<%=request.getContextPath() %>/users/uploadmarks?method=GET&param2=${UserDetails.userid}">
+                <button data-toggle="modal" class="btn btn-squared-default btn-primary">
+                   <i class="fa fa-calendar fa-2x"></i>
+                    <br />
+                    Upload<br/>
+                     Marks
+                </button></a>
+              
+            </p>
+    </div>     
 
-
-		</div>
-	</div>
 </body>
 </html>

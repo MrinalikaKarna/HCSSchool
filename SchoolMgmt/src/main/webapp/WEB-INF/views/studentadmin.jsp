@@ -21,9 +21,21 @@
 <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>
 
 <body>
-<!--   <div class="container text-left"> -->
     
-        <div class="col-md-12">
+        	<div class="container-fluid">
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Student's Administration Activities
+                        </h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href=""> Student's Admin</a>
+                            </li>
+                           
+                        </ol>
+                    </div>
+                </div>
             
             <p> 
                 <button data-toggle="modal" data-target="#newsModal" class="btn btn-squared-default btn-primary">
@@ -201,60 +213,60 @@
 
 <script type="text/javascript" src="http://www.prepbootstrap.com/Content/data/shortGridData.js"></script>	
 		<script type="text/javascript">
-    $(document).ready(function () {
-        $("#grid").shieldGrid({
-            dataSource: {
-                data: gridData,
-                schema: {
-                    fields: {
-                        id: { path: "${NewsEventData.newsid}", type: Number },
-                        title: { path: "${NewsEventData.title}", type: String },
-                        content: { path: "${NewsEventData.content}", type: String },
-                        fromdate: { path: "${NewsEventData.fromdate}", type: Date},
-                        todate: { path: "${NewsEventData.todate}", type: Date },
-                        eligibility: { path: "eligibility", type: String },
-                        eligibility: { path: "category", type: String },
+//     $(document).ready(function () {
+//         $("#grid").shieldGrid({
+//             dataSource: {
+//                 data: gridData,
+//                 schema: {
+//                     fields: {
+//                         id: { path: "${NewsEventData.newsid}", type: Number },
+//                         title: { path: "${NewsEventData.title}", type: String },
+//                         content: { path: "${NewsEventData.content}", type: String },
+//                         fromdate: { path: "${NewsEventData.fromdate}", type: Date},
+//                         todate: { path: "${NewsEventData.todate}", type: Date },
+//                         eligibility: { path: "eligibility", type: String },
+//                         eligibility: { path: "category", type: String },
                         
-                    }
-                }
-            },
-            sorting: {
-                multiple: true
-            },
-            rowHover: false,
-            columns: [
-                { field: "id", title: "Item Id", width: "120px" },
-                { field: "title", title: "Title", width: "80px" },
-                { field: "content", title: "Content Body" },
-                { field: "fromdate", title: "Start Date", format: "{0:MM/dd/yyyy}", width: "120px" },
-                { field: "todate", title: "End Date" },
-                { field: "eligibility", title: "Eligibility", width: "250px" },
-                { field: "category", title: "Item categoryr", width: "120px" },                
-                {
-                    width: 150,
-                    title: "Update/Delete Column",
-                    buttons: [
-                        { commandName: "edit", caption: "Edit" },
-                        { commandName: "delete", caption: "Delete" }
-                    ]
-                }
-            ],
-            editing: {
-                enabled: true,
-                mode: "popup",
-                confirmation: {
-                    "delete": {
-                        enabled: true,
-                        template: function (item) {
-                            return "Delete row with ID = " + item.id
-                        }
-                    }
-                }
-            }            
-        });
+//                     }
+//                 }
+//             },
+//             sorting: {
+//                 multiple: true
+//             },
+//             rowHover: false,
+//             columns: [
+//                 { field: "id", title: "Item Id", width: "120px" },
+//                 { field: "title", title: "Title", width: "80px" },
+//                 { field: "content", title: "Content Body" },
+//                 { field: "fromdate", title: "Start Date", format: "{0:MM/dd/yyyy}", width: "120px" },
+//                 { field: "todate", title: "End Date" },
+//                 { field: "eligibility", title: "Eligibility", width: "250px" },
+//                 { field: "category", title: "Item categoryr", width: "120px" },                
+//                 {
+//                     width: 150,
+//                     title: "Update/Delete Column",
+//                     buttons: [
+//                         { commandName: "edit", caption: "Edit" },
+//                         { commandName: "delete", caption: "Delete" }
+//                     ]
+//                 }
+//             ],
+//             editing: {
+//                 enabled: true,
+//                 mode: "popup",
+//                 confirmation: {
+//                     "delete": {
+//                         enabled: true,
+//                         template: function (item) {
+//                             return "Delete row with ID = " + item.id
+//                         }
+//                     }
+//                 }
+//             }            
+//         });
 
        
-    });
+//     });
 </script>
 	</div>
 

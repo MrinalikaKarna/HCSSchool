@@ -10,16 +10,30 @@
 <link
 	href="${pageContext.servletContext.contextPath}/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="${pageContext.servletContext.contextPath}/css/customcss.css"
+<link href="${pageContext.servletContext.contextPath}/css/customstyle.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/font-awesome.min.css">
 </head>
 <body>
-	<div class="panel panel-default">
-<!-- 		<div class="panel-heading main-color-bg"> -->
-<!-- 			<h2 class="panel-title">My Profile</h2> -->
-<!-- 		</div> -->
-		<div class="panel-body" align="center">
-			<table class="table table-striped">
+            <div class="container-fluid">
+           <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            My Profile
+                        </h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i><a href=""> My Profile</a>
+                            </li>
+                           
+                        </ol>
+                    </div>
+                </div>
+	
+			<div class="row" >
+                 <div class="col-lg-9">
+                  <div class="table-responsive">
+                   <table class="table table-bordered table-hover">
 
 				<tbody>
 					<tr>
@@ -84,10 +98,14 @@
 
 				</tbody>
 			</table>
+			</div>
+			</div>
+			</div>
+			
+
+</div>
 
 
 
-		</div>
-	</div>
 </body>
 </html>

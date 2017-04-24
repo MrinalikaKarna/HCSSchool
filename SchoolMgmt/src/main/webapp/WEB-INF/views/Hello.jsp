@@ -13,7 +13,7 @@
 
 <!-- Custom CSS -->
 <link
-	href="${pageContext.servletContext.contextPath}/css/customcss.css"
+	href="${pageContext.servletContext.contextPath}/css/customstyle.css"
 	rel="stylesheet">
 	
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/font-awesome.min.css">
@@ -24,23 +24,40 @@
 </head>
 
 <body>
-<div>
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            News, Events and Announcements
+                        </h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="">News n' Events</a>
+                            </li>
+                           
+                        </ol>
+                    </div>
+                </div>
+
     <div class="col-md-3">
         
             <div class="col-xs-12" id="announcementdiv">
-             <h4>Announcements</h4>
+<!--              <h4>Announcements</h4> -->
 
         </div>
     </div>
     <div class="col-md-9">
             <div class="col-xs-12" id="newseventdiv">
-              <h4>News n' Events</h4>
+<!--               <h4>News n' Events</h4> -->
        
         </div>
 
     </div>
 </div>
-
+</div>
+</div>
 <script type="text/javascript">
 $(function() {
     <c:forEach items="${NewsEventData}"  var="myItem" >

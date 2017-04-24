@@ -24,52 +24,41 @@
 
 
 		<div >
-			
+
+		<table class="table table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Roll No.</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Class</th>
+					<th>Present</th>
+					<th>Absent</th>
+				</tr>
+			</thead>
+			<c:forEach items="${StudentDetails}" var="sdetails" varStatus="i">
+				<tr id="${i.index}">
+					<td><input name="userid" id="userid"
+						value='${sdetails.userid}' readonly="readonly"></td>
+					<td><input name="firstname" id="firstname"
+						value='${sdetails.firstname}' readonly="readonly" /></td>
+					<td><input name="lastname" id="lastname"
+						value='${sdetails.lastname}' readonly="readonly" /></td>
+					<td><input name="classname" id="classname"
+						value='${sdetails.classDetails.classid}' readonly="readonly" /></td>
+					<td><input type="submit" name="Present" id="UpdatePresent"
+						class="updatePresentBtn" value="P"></td>
+					<td><input type="submit" name="Absent" id="UpdateAbsent"
+						class="updateAbsentBtn" value="A"></td>
+				</tr>
+
+			</c:forEach>
+		</table>
 
 
-					<div class="input-group">
-						<label>Year </label>
-						<select name="InputYearDetails" id="InputYearDetails">
-							<c:forEach var="yeard" items="${YearDetails}">
-								<option value="${yeard.yearid}" label="${yeard.yearid}" />
-							</c:forEach>
 
-						</select>
-					</div>
 
-					<div class="input-group">
-						<label>Exam </label>
-						<select name="InputExamDetails" id="InputExamDetails">
-							<c:forEach var="examd" items="${ExamDetails}">
-								<option value="${examd.examid}" label="${examd.examname}"  />
-							</c:forEach>
-
-						</select>
-					</div>
-					<table class="table table-bordered">
-					<c:forEach items="${StudentDetails}" var="sdetails" varStatus="i">
-					<tr id="${i.index}">
-						<td><input name="userid" id="userid" value='${sdetails.userid}' readonly="readonly"></td>
-						<td><input name="firstname" id="firstname" value='${sdetails.firstname}' readonly="readonly" /></td>
-						<td><input name="lastname" id="lastname" value='${sdetails.lastname}' readonly="readonly" /></td>
-						<td><input name="classname" id="classname" value='${sdetails.classDetails.classid}' readonly="readonly" /></td>
-						<td><input id="english" name="english" type="text" value=0></td>
-						<td><input id="hindi" name="hindi" type="text" value=0></td>
-						<td><input id="maths" name="maths" type="text" value=0></td>
-						<td><input id="science" name="science" type="text" value=0></td>
-						<td><input id="socialstudies" name="socialstudies" type="text" value=0></td>
-						<td><input id="sanskrit" name="sanskrit" type="text" value=0></td>
-						<td><input type="submit" name="Update" id="Update" class="updateBtn" value=${i.index }></td>
-					 	
-					</tr>
-						
-                    </c:forEach>
-                    </table>
-					
-					
-			
-			
-		</div>
+	</div>
 
 <script>        
    $(document).ready(function() {
@@ -107,4 +96,3 @@
 });             
 </script>
 </body>
-</html>

@@ -15,6 +15,10 @@
   <put-attribute name="body"/>
   <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
  </definition>
+ 
+ <definition name="baseLayout3" template="/WEB-INF/views/layout3.jsp">
+  <put-attribute name="loginbody"/>
+ </definition>
 
 
 </tiles-definitions> 

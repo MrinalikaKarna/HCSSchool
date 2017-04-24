@@ -37,7 +37,7 @@
 		<div class="col-md-2">
 		<tiles:insertAttribute name="menu" />
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-10"  id="scrollcontent">
 		<tiles:insertAttribute name="body" />
 		</div>
 	</div>

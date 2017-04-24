@@ -22,8 +22,7 @@
 
   </head>
   <body >
-    
-<!--    <div id="headerall"> -->
+
 
     <nav class="navbar navbar-default">
       
@@ -85,10 +84,10 @@
 $(document).ready(function(){ 
 switch("${TabStatus}") {
  case "hello":
-    $('#Tab1').css('background-color','#db340a') 
+    $('#Tab1').css('background-color','#092324') 
   break; 
  case "creativecorner":
-   $('#Tab3').css('background-color','#db340a')
+   $('#Tab3').css('background-color','#092324')
 	break;
   };
 

@@ -95,6 +95,14 @@ public class Users {
 		return "marksdetails";	
 	}
 	
+	@RequestMapping(value="/attendancesheet", method=RequestMethod.GET)
+	public String showAttendanceSheet(ModelMap model){
+		List<ClassDetails> classDetails1 = usersServices.getClassDetailsList();
+	    model.addAttribute("ClassDetails", classDetails1);
+	    model.addAttribute("ClassDetailsnew", new ClassDetails());
+		return "attendancesheet";	
+	}
+	
 	@RequestMapping(value="/getStudentDetails",method=RequestMethod.POST)
 	public String getStudentDetails(ModelMap model, @ModelAttribute("ClassDetailsnew") ClassDetails classdetails)
 	{   
@@ -111,6 +119,17 @@ public class Users {
 //	    model.addAttribute("MarksDetailsNew", new MarksDetails());
         
 	    return "marksdetails";
+			
+		}
+	
+	@RequestMapping(value="/getStudentRegisterDetails",method=RequestMethod.POST)
+	public String getStudentRegisterDetailsls(ModelMap model, @ModelAttribute("ClassDetailsnew") ClassDetails classdetails)
+	{   
+		int classid = classdetails.getClassid();
+		List<UserDetails> studentMarksDetails = usersServices.getUserClassDetails(classid);
+        model.addAttribute("StudentDetails", studentMarksDetails);
+   
+	    return "studentattendancedetails";
 			
 		}
        
