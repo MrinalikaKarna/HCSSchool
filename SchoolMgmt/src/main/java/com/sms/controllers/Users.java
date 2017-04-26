@@ -26,6 +26,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
@@ -95,6 +96,14 @@ public class Users {
 		return "marksdetails";	
 	}
 	
+	@RequestMapping(value="/feedbacksheet", method=RequestMethod.GET)
+	public String showFeedbackClass(ModelMap model){
+		List<ClassDetails> classDetails1 = usersServices.getClassDetailsList();
+	    model.addAttribute("ClassDetails", classDetails1);
+	    model.addAttribute("ClassDetailsnew", new ClassDetails());
+		return "feedbacksheet";
+	}
+	
 	@RequestMapping(value="/attendancesheet", method=RequestMethod.GET)
 	public String showAttendanceSheet(ModelMap model){
 		List<ClassDetails> classDetails1 = usersServices.getClassDetailsList();
@@ -130,6 +139,17 @@ public class Users {
         model.addAttribute("StudentDetails", studentMarksDetails);
    
 	    return "studentattendancedetails";
+			
+		}
+	
+	@RequestMapping(value="/getStudentFeedbackDetails",method=RequestMethod.POST)
+	public String getStudentFeedbackDetailsls(ModelMap model, @ModelAttribute("ClassDetailsnew") ClassDetails classdetails)
+	{   
+		int classid = classdetails.getClassid();
+		List<UserDetails> studentMarksDetails = usersServices.getUserClassDetails(classid);
+        model.addAttribute("StudentDetails", studentMarksDetails);
+   
+	    return "studentfeedbackdetails";
 			
 		}
        
@@ -305,14 +325,37 @@ public class Users {
 		if (marksUpdateStatus==true){
 			map.put("MarksUpdateStatus", true);
 			map.put("message", "Saved successfully");
-//			return "marksdetails";
+
 		}else{
 			map.put("MarksUpdateStatus", true);
 			map.put("message", "Not Saved successfully");
-//			return "marksdetails";	
+
 		}
 		return map;
       }
+	
+	@RequestMapping(value="/addattendancedetails",method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> addAttendanceDetails(@RequestBody AttendanceDetails attendanceDetails)
+	{   
+		Map<String,Object> map = new HashMap<String,Object>();
+		if (!attendanceDetails.getDate().isEmpty()){
+		boolean attendanceUpdateStatus = usersServices.saveUserAttendaceUpdateDetails(attendanceDetails);
+		if (attendanceUpdateStatus==true){
+			map.put("AttendanceUpdateStatus", true);
+			map.put("message", "Saved successfully");
+			map.put("NullMessage", "ok");
+		}else{
+			map.put("AttendanceUpdateStatus", false);
+			map.put("message", "Not Saved successfully");
+			map.put("NullMessage", "ok");
+
+		} 
+		}else{
+			map.put("NullMessage", "Enter Date First..");
+		}
+		return map;
+      }
+	
 	
 	
 	

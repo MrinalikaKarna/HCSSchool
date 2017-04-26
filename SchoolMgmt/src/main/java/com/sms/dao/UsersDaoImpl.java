@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
+import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
@@ -383,6 +384,35 @@ public class UsersDaoImpl implements UsersDao {
 			e.printStackTrace();
 		}
 		return marksDetails;
+	}
+
+	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails) {
+		
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		UserDetails userDetails = attendanceDetails.getUserDetails();
+		int userid = userDetails.getUserid();
+		String date = attendanceDetails.getDate();
+		
+		String hql = "from com.sms.model.AttendanceDetails as a where a.userDetails.userid=? and a.date=?";
+		Query query = session1.createQuery(hql);
+		query.setParameter(0, userid);
+		query.setParameter(1, date);
+		AttendanceDetails attDetails = (AttendanceDetails) query.uniqueResult();
+		if (attDetails == null){
+		try {
+			session1.save(attendanceDetails);
+			tx.commit();
+			session1.close();
+			return true;}
+		 catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+			return false;
+		}
+		}
+		return true; //this has to be corrected later.. Not correct code.. wrong logic
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.sms.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
 @Table(name="marksdetails")
-public class MarksDetails {
+public class MarksDetails{
 	
 	@Id
 	@Column(name = "marksid")

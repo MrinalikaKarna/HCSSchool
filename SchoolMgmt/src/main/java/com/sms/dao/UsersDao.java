@@ -2,6 +2,7 @@ package com.sms.dao;
 
 import java.util.List;
 
+import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
@@ -35,6 +36,7 @@ public interface UsersDao {
 	public boolean save(BlogPostStore blogpostFile);
 	public boolean saveUserMarksUpdateDetails(MarksDetails marksDetails);
 	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid);
+	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails);
 	
 	
 

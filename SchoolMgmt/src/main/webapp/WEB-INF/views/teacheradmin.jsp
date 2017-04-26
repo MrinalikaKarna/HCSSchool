@@ -45,7 +45,7 @@
                     Upload<br/>
                      Marks
                 </button></a>
-                  <a href="<%=request.getContextPath() %>/users/uploadmarks?method=GET&param2=${UserDetails.userid}">
+                  <a href="<%=request.getContextPath() %>/users/feedbacksheet?method=GET&param2=${UserDetails.userid}">
                 <button data-toggle="modal" class="btn btn-squared-default btn-primary">
                    <i class="fa fa-pencil-square fa-2x"></i>
                     <br />

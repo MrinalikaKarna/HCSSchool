@@ -39,6 +39,14 @@
   <put-attribute name="body" value="/WEB-INF/views/attendancesheet.jsp" />
  </definition>
  
+  <definition name="feedbacksheet" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/feedbacksheet.jsp" />
+ </definition>
+ 
+  <definition name="studentfeedbackdetails" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/studentfeedbackdetails.jsp" />
+ </definition>
+ 
  <definition name="studentattendancedetails" extends="baseLayout">
   <put-attribute name="body" value="/WEB-INF/views/studentattendancedetails.jsp" />
  </definition>

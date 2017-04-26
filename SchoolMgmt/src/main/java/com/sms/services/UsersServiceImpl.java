@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sms.dao.UsersDao;
+import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
@@ -106,6 +107,10 @@ public class UsersServiceImpl implements UsersServices {
 
 	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid) {
 		return usersDao.getUsersMarksDetails(userid, classid, examid);
+	}
+
+	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails) {
+		return usersDao.saveUserAttendaceUpdateDetails(attendanceDetails);
 	}
 
 }

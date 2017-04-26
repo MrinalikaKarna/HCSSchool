@@ -3554,19 +3554,19 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-info {
 	color: #fff;
-	background-color: #5bc0de;
+	background-color: #348387;
 	border-color: #46b8da
 }
 
 .btn-info.focus, .btn-info:focus {
 	color: #fff;
-	background-color: #31b0d5;
+	background-color: #348387;
 	border-color: #1b6d85
 }
 
 .btn-info:hover {
 	color: #fff;
-	background-color: #31b0d5;
+	background-color: #619fa1;
 	border-color: #269abc
 }
 

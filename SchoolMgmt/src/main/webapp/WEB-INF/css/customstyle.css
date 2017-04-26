@@ -3,7 +3,7 @@ body {
 }
 
 .active {
-	background-color: #4CAF50 !important;
+	background-color: #f5f5f5 !important;
 	color: white;
 }
 
@@ -110,12 +110,12 @@ body {
 #header {
 	background-color: #061718 !important;
 	width:100% !important;
-	border-color: #e7290c !important;
 	color: white !important;
 	position: absolute ! important;
 	top: 33px !important;
 	padding-left: 45px;
 	 font: italic bold 12px/30px Georgia, serif !important;
+	 border-bottom: 1px solid #8ebabc !important;
 
 }
 
@@ -136,7 +136,7 @@ body {
 
 #headerall {
 	background-color: #333333 !important;
-	border-color: #e7290c !important;
+	border-bottom: 1px solid #8ebabc;
 	color: white !important;
 	padding-top: 7px;
 	padding-bottom: 8px;
@@ -186,6 +186,32 @@ body {
 .center {
     margin-top:50px;   
 }
+.presentBtn{
+	height:22px;
+    width:22px;
+    border: 1px;
+    border-radius:2px;
+    cursor: pointer;
+    color:white;
+    background-color:#78acaf;
+    position:relative;
+    font-weight: bold;
+    
+}
+
+.absentBtn{
+	height:22px;
+    width:22px;
+    border: 1px;
+    border-radius:2px;
+    cursor: pointer;
+    color:white;
+    background-color:#78acaf;
+    position:relative;
+    font-weight: bold;
+    
+}
+
 #row_style {
     margin-top: 30px;
 }

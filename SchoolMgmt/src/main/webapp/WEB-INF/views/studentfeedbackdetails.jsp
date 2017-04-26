@@ -30,16 +30,16 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
-				<h4 class="page-header">Attendance Register</h4>
+				<h4 class="page-header">Write Feedback</h4>
 				<ol class="breadcrumb">
 					<li><i class="fa fa-dashboard"></i> <a
 						href="<%=request.getContextPath() %>/users/teacheradmin?method=GET&param3=${UserDetails.userid}">
 							Teacher's Admin</a></li>
 					<li><i class="fa fa-bar-chart-o"></i> <a
-						href="<%=request.getContextPath() %>/users/attendancesheet?method=GET&param3=${UserDetails.userid}">
+						href="<%=request.getContextPath() %>/users/feedbacksheet?method=GET&param3=${UserDetails.userid}">
 							Select Class</a></li>
 					<li class="active"><i class="fa fa-bar-chart-o"></i>
-						Attendance Register</li>
+						Write Feedback</li>
 
 				</ol>
 			</div>
@@ -71,8 +71,8 @@
 					<th>Roll No.</th>
 					<th>Name</th>
 					<th>Class</th>
-					<th>Present</th>
-					<th>Absent</th>
+					<th>Feedback</th>
+					<th>Submit</th>
 				</tr>
 			</thead>
 			<c:forEach items="${StudentDetails}" var="sdetails" varStatus="i">
@@ -84,10 +84,10 @@
 						readonly="readonly" /></td>
 					<td><input name="classname" id="classname"
 						value='${sdetails.classDetails.classid}' readonly="readonly" /></td>
-					<td><input type="submit" name="Present" id="#attendancepresent"
-						class="presentBtn" value="P"></td>
-					<td><input type="submit" name="Absent" id="#attendanceabsent"
-						class="absentBtn" value="A"></td>
+					<td><textarea  name="Feedback" id="#feedback"
+					    rows="3"></textarea></td>
+					<td><input type="submit" name="Submit" id="#attendanceabsent"
+						class="btn btn-primary" value="Submit"></td>
 				</tr>
 
 			</c:forEach>

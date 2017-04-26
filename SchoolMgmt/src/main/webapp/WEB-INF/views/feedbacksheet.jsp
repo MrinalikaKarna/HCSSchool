@@ -11,7 +11,7 @@
                <div class="row">
                     <div class="col-lg-12">
                         <h4 class="page-header">
-                            Select Class for Attendance
+                            Select Class for Feedback
                         </h4>
                         <ol class="breadcrumb">
                             <li>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 	<div class="well">
-		<s:form action="getStudentRegisterDetails" commandName="ClassDetailsnew"
+		<s:form action="getStudentFeedbackDetails" commandName="ClassDetailsnew"
 			method="post">
 				<label>Class </label>
 				<s:select path="classid" name="InputClassDetails"
