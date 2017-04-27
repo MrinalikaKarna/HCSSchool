@@ -60,7 +60,7 @@
 					value='${UserDetails.userid}' />
 
 				<div class="col-md-6">
-					<input class="col-md-3 btn-default active" type="submit"
+					<input class="btn btn-info pull-right" type="submit"
 						name="result" id="result" value="Get Result" />
 				</div>
 				<br>

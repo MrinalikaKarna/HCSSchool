@@ -15,7 +15,6 @@
 
 
     <link href="${pageContext.servletContext.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.servletContext.contextPath}/css/customstyle.css" type="text/css" rel="stylesheet">
     <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.servletContext.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.servletContext.contextPath}/js/scripts.js"></script>

@@ -20,6 +20,7 @@ import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
+import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
 import com.sms.model.MarksDetails;
 import com.sms.model.NewsEvent;
@@ -413,6 +414,42 @@ public class UsersDaoImpl implements UsersDao {
 		}
 		}
 		return true; //this has to be corrected later.. Not correct code.. wrong logic
+	}
+
+	public boolean saveUserFeedbackDetails(FeedbackRegister feedbackRegister) {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		try {
+			session1.save(feedbackRegister);
+			tx.commit();
+			session1.close();
+			return true;
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<FeedbackRegister> getFeedbackDetailsList(int userid) {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		String hql = "from com.sms.model.FeedbackRegister as u where u.userDetails.userid=?";
+         Query query = session1.createQuery(hql);
+			query.setParameter(0, userid);
+			List<FeedbackRegister> userFeedbackDetail = (List<FeedbackRegister>) query.list();
+			List<FeedbackRegister> userFeedbackDetails = Lists.reverse(userFeedbackDetail);
+	    try {
+			tx.commit();
+			session1.close();
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+		}
+		return userFeedbackDetails;
 	}
 
 }

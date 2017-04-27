@@ -31,6 +31,11 @@
       <!-- Configure JDBC Connection-->
       <bean id="dataSource"
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!--             <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!--             <property name="url" value="jdbc:mysql://mysql20536-hcsschool.njs.jelastic.vps-host.net/hcsschool" /> -->
+<!--             <property name="username" value="root" /> -->
+<!--             <property name="password" value="7yzFMP5cTp" /> -->
+<!--         Local system database details -->
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
             <property name="url" value="jdbc:mysql://localhost:3306/hcsschool" />
             <property name="username" value="root" />

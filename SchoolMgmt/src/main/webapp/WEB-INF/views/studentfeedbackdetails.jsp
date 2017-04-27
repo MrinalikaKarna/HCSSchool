@@ -44,26 +44,10 @@
 				</ol>
 			</div>
 		</div>
-<div class="well">
-		<div class="row">
 		
-			<div class='col-md-2'>
-				<div class="form-group ">
-					<label class="control-label requiredField" for="fromdate">
-						Select Date <span class="asteriskField"> * </span>
-					</label>
-					<div class="input-group">
-						<div class="input-group-addon">
-							<i class="fa fa-calendar"> </i>
-						</div>
-						<input class="form-control" id="datepicker"
-							name="datepicker" placeholder="DD/MM/YYYY" type="date" />
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
 
+       <input name="submitter" id="submitter"
+						value='${UserDetails.firstname} ${UserDetails.lastname}' readonly="readonly">
 
 		<table class="table table-bordered">
 			<thead class="thead-inverse">
@@ -84,10 +68,10 @@
 						readonly="readonly" /></td>
 					<td><input name="classname" id="classname"
 						value='${sdetails.classDetails.classid}' readonly="readonly" /></td>
-					<td><textarea  name="Feedback" id="#feedback"
+					<td><textarea  name="Feedback" id="feedback"
 					    rows="3"></textarea></td>
-					<td><input type="submit" name="Submit" id="#attendanceabsent"
-						class="btn btn-primary" value="Submit"></td>
+					<td><input type="submit" name="Submit" id="submitBtn"
+						class="btn btn-info pull-right" value="Submit"></td>
 				</tr>
 
 			</c:forEach>
@@ -101,25 +85,21 @@
    $(document).ready(function() {
 
 	   
-     $(".presentBtn").click(function(){
+     $(".submitBtn").click(function(){
     	var reference = $(this)
         $.ajax({
         	type:"POST",
-            url:"addattendancedetails",
+            url:"addfeedbackdetails",
             data: JSON.stringify({
-     		  "userDetails":{'userid':$(this).closest('tr').find('#userid').val()},
-     		   "date":$('#datepicker').val(),
-       		  "attendancestatus":"P",	
+     		 "userDetails":{'userid':$(this).closest('tr').find('#userid').val()},
+     		 "feedbackcomments":$(this).closest('tr').find('#feedback').val(),
+     		 "submitter":$('#submitter').val()
    			   }),
             dataType: "json",
-             contentType: "application/json",
+            contentType: "application/json",
             
             success:function(response){
-             if (response.NullMessage=="ok"){
-                $(reference).closest('tr').find('.presentBtn').css('background-color', 'green');}
-             else if (response.NullMessage=="Enter Date First.."){
-            	 alert(response.NullMessage);
-             }
+             alert(response.message);
             },
             failure: function(response){
                alert(response.message);
@@ -128,46 +108,8 @@
         });
     });
      
-     $(".absentBtn").click(function(){
-    	 var reference = $(this)
-         $.ajax({
-         	type:"POST",
-             url:"addattendancedetails",
-             data: JSON.stringify({
-      		  "userDetails":{'userid':$(this).closest('tr').find('#userid').val()},
-      		   "date":$('#datepicker').val(),
-        		  "attendancestatus":"A",	
-    			   }),
-             dataType: "json",
-              contentType: "application/json",
-             
-             success:function(response){
-            	 if (response.NullMessage=="ok"){
-            	     $(reference).closest('tr').find('.absentBtn').css('background-color', 'red');
-            	     }
-            	 else if (response.NullMessage=="Enter Date First.."){
-            		 alert(response.NullMessage);
-            	 }
-             },
-             failure: function(response){
-                alert(response.message);
-                
-             }
-         });
-     });
+    
 });
-   
-   $.noConflict();
-   jQuery( document ).ready(function( $ ){
-           var date_input=$('input[name="datepicker"]'); 
-           var container=$('#bootstrap-iso form').length>0 ? $('#bootstrap-iso form').parent() : "body";
-           date_input.datepicker({
-        	   format: 'dd/mm/yyyy',
-               container: container,
-               todayHighlight: true,
-               autoclose: true,
-           })
 
-       })
 </script>
 </body>

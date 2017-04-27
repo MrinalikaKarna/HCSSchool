@@ -33,9 +33,18 @@
 
 <body>
 <div id="menubody">
+		<div class="input-group" id="searchBtn">
+			<input type="text" class="form-control" placeholder="Search"
+				name="srch-term" id="srch-term">
+			 <div class="input-group-btn">
+				<button class="btn btn-default" type="submit">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+			</div>
+		</div>
 
-	
-				    <a href="<%=request.getContextPath() %>/users/Hello?method=GET" class="list-group-item" id="menu1" >
+
+		<a href="<%=request.getContextPath()%>/users/Hello?method=GET" class="list-group-item" id="menu1" >
 				    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> News n' Events </a>
 					<a href="<%=request.getContextPath() %>/users/myprofile?method=GET&param1=${UserDetails.userModel.mobilenumber}" class="list-group-item" id="menu2">
 					 <span class="glyphicon glyphicon-user" aria-hidden="true" ></span> My Profile </a>
@@ -45,7 +54,7 @@
 						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Leaves and Calendar</a>
 					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu8">
 						<span class="glyphicon glyphicon-th" aria-hidden="true"></span> Time Table</a>
-					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu9">
+					<a href="<%=request.getContextPath() %>/users/teachersfeedback?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu9">
 						<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Teacher's Feedback</a>
 					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu10">
 						<span class="glyphicon glyphicon-tower" aria-hidden="true"></span> My Achievements</a>
@@ -103,6 +112,9 @@ switch("${MenuStatus}") {
 	break;
  case "SupportAdmin":
     $('#menu7').css('background-color','#155255') 
+	break;
+ case "TeachersFeedback":
+    $('#menu9').css('background-color','#155255') 
 	break;
  }
 });

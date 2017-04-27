@@ -10,6 +10,7 @@ import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
+import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
 import com.sms.model.MarksDetails;
 import com.sms.model.NewsEvent;
@@ -111,6 +112,14 @@ public class UsersServiceImpl implements UsersServices {
 
 	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails) {
 		return usersDao.saveUserAttendaceUpdateDetails(attendanceDetails);
+	}
+
+	public boolean saveUserFeedbackDetails(FeedbackRegister feedbackRegister) {
+		return usersDao.saveUserFeedbackDetails(feedbackRegister);
+	}
+
+	public List<FeedbackRegister> getFeedbackDetailsList(int userid) {
+		return usersDao.getFeedbackDetailsList(userid);
 	}
 
 }

@@ -6,6 +6,7 @@ import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
+import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
 import com.sms.model.MarksDetails;
 import com.sms.model.NewsEvent;
@@ -36,4 +37,6 @@ public interface UsersServices {
 	public boolean saveUserMarksUpdateDetails(MarksDetails marksDetails);
 	public MarksDetails getUsersMarksDetails(int userid, int classid, int examid);
 	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails);
+	public boolean saveUserFeedbackDetails(FeedbackRegister feedbackRegister);
+	public List<FeedbackRegister> getFeedbackDetailsList(int userid);
 }

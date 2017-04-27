@@ -190,8 +190,7 @@
 
 	<div class="modal fade alert" id="myItemsModal" tabindex="-1"
 		role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-<!-- 		<div class="modal-dialog"> -->
-<!-- 			<div class="modal-content"> -->
+
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -205,91 +204,10 @@
 						</div>
 					</div>
 				</div>
-<!-- 			</div> -->
-<!-- 		</div> -->
-		
 
-<script type="text/javascript" src="http://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
-
-<script type="text/javascript" src="http://www.prepbootstrap.com/Content/data/shortGridData.js"></script>	
-		<script type="text/javascript">
-//     $(document).ready(function () {
-//         $("#grid").shieldGrid({
-//             dataSource: {
-//                 data: gridData,
-//                 schema: {
-//                     fields: {
-//                         id: { path: "${NewsEventData.newsid}", type: Number },
-//                         title: { path: "${NewsEventData.title}", type: String },
-//                         content: { path: "${NewsEventData.content}", type: String },
-//                         fromdate: { path: "${NewsEventData.fromdate}", type: Date},
-//                         todate: { path: "${NewsEventData.todate}", type: Date },
-//                         eligibility: { path: "eligibility", type: String },
-//                         eligibility: { path: "category", type: String },
-                        
-//                     }
-//                 }
-//             },
-//             sorting: {
-//                 multiple: true
-//             },
-//             rowHover: false,
-//             columns: [
-//                 { field: "id", title: "Item Id", width: "120px" },
-//                 { field: "title", title: "Title", width: "80px" },
-//                 { field: "content", title: "Content Body" },
-//                 { field: "fromdate", title: "Start Date", format: "{0:MM/dd/yyyy}", width: "120px" },
-//                 { field: "todate", title: "End Date" },
-//                 { field: "eligibility", title: "Eligibility", width: "250px" },
-//                 { field: "category", title: "Item categoryr", width: "120px" },                
-//                 {
-//                     width: 150,
-//                     title: "Update/Delete Column",
-//                     buttons: [
-//                         { commandName: "edit", caption: "Edit" },
-//                         { commandName: "delete", caption: "Delete" }
-//                     ]
-//                 }
-//             ],
-//             editing: {
-//                 enabled: true,
-//                 mode: "popup",
-//                 confirmation: {
-//                     "delete": {
-//                         enabled: true,
-//                         template: function (item) {
-//                             return "Delete row with ID = " + item.id
-//                         }
-//                     }
-//                 }
-//             }            
-//         });
-
-       
-//     });
-</script>
-	</div>
-
+</div>
 
 </body>
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-<script>
-// $.noConflict();
-// jQuery( document ).ready(function( $ ){
-//         var date_input=$('input[name="date"]'); 
-//         var container=$('#bootstrap-iso form').length>0 ? $('#bootstrap-iso form').parent() : "body";
-//         date_input.datepicker({
-//             format: 'dd/mm/yyyy',
-//             container: container,
-//             todayHighlight: true,
-//             autoclose: true,
-//         })
-
-
-//     })
-<%-- </script> --%>
 
 </html>

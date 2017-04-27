@@ -1,7 +1,10 @@
 package com.sms.controllers;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,6 +35,7 @@ import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
 import com.sms.model.ExamDetails;
+import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
 import com.sms.model.MarksDetails;
 import com.sms.model.NewsEvent;
@@ -47,8 +53,6 @@ public class Users {
 	
 	@Autowired
 	private UsersServices usersServices;
-	
-	
 	
 	@RequestMapping(value="/page", method=RequestMethod.GET)
 	public ModelAndView getPage(){
@@ -356,6 +360,31 @@ public class Users {
 		return map;
       }
 	
+	@RequestMapping(value="/addfeedbackdetails",method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> addFeedbackDetails(@RequestBody FeedbackRegister feedbackRegister)
+	{   
+		Map<String,Object> map = new HashMap<String,Object>();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		feedbackRegister.setSubmitdate(dateFormat.format(date));
+		if (!feedbackRegister.getFeedbackcomments().isEmpty()){
+		boolean feedbackUpdateStatus = usersServices.saveUserFeedbackDetails(feedbackRegister);
+		if (feedbackUpdateStatus==true){
+			map.put("FeedbackUpdateStatus", true);
+			map.put("message", "Saved successfully");
+			map.put("NullMessage", "ok");
+		}else{
+			map.put("FeedbackUpdateStatus", false);
+			map.put("message", "Not Saved successfully");
+			map.put("NullMessage", "ok");
+
+		} 
+		}else{
+			map.put("NullMessage", "Enter Comments First..");
+		}
+		return map;
+      }
+	
 	
 	
 	
@@ -368,6 +397,19 @@ public class Users {
         return "leaves";
          }
 	
+	@RequestMapping(value="/teachersfeedback",method=RequestMethod.GET)
+	public String showTeachersFeedback(ModelMap model, @RequestParam("param3") int userid, HttpSession newsession )
+	{   
+	
+		model.addAttribute("userId", userid);
+		List<FeedbackRegister> feedbackDetails = usersServices.getFeedbackDetailsList(userid);
+		model.addAttribute("MenuStatus","TeachersFeedback");
+		model.addAttribute("Feedback", feedbackDetails);
+        return "teachersfeedback";
+         
+	}
+	 
+
 	
 	@RequestMapping(value="creativecorner/visualart/doSubmitBlogpost", method=RequestMethod.POST)
 	public String submitBlogPost(ModelMap model, @ModelAttribute("BlogDetails") BlogPostStore blogpostFile)
@@ -448,6 +490,7 @@ public class Users {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String showLogout(ModelMap model, HttpSession newsession) {
 		newsession.removeAttribute("UsersModel");
+		newsession.invalidate();
 		return "redirect:/";
 	}
 
