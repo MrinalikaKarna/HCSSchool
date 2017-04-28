@@ -141,6 +141,17 @@ padding-bottom:15px;
 	margin-left: auto
 }
 
+#profile-name{
+	color: green !important;
+	font-size: 30px;
+	padding-bottom: 35px;
+}
+
+#loginFooter{
+	color:gray !important;
+	font-size: 11px;
+}
+
 .col-md-3{
 	padding-left: 0px !important;
 }

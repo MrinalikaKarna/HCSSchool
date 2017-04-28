@@ -64,7 +64,7 @@ public class Users {
 
 	
 	@RequestMapping(value="/welcome", method=RequestMethod.POST)
-	public String loginUser(ModelMap model, @ModelAttribute("userLoginData") UsersModel usersModel, HttpSession newsession)
+	public String loginUser(ModelMap model, @ModelAttribute("userLoginData") UsersModel usersModel, HttpSession newsession, RedirectAttributes redirectAttributes)
 	{if(usersModel.getMobilenumber()!=0 && usersModel.getPassword()!=null)
 	{ 
 		UsersModel usersModelnew = usersServices.doLogin(usersModel);			
@@ -76,7 +76,7 @@ public class Users {
 			newsession.setAttribute("NewsEventData", newsevent);
 			return "redirect:Hello";
 		}else{
-			model.put("Failed", "login failed");
+			redirectAttributes.addFlashAttribute("Failed", "failed");
 			return "redirect:/";
 		}
 	}else{
