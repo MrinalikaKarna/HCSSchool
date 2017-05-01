@@ -156,6 +156,24 @@ public class Users {
 	    return "studentfeedbackdetails";
 			
 		}
+	
+//	@RequestMapping(value="/getResultDetails",method=RequestMethod.POST)
+//	public @ResponseBody Map<String,Object> getResultDetails(@RequestBody ResultParams resultparams) 
+//	{   Map<String,Object> map = new HashMap<String,Object>(); 
+//	    int userid = resultparams.getUserid();
+//	    int classid = resultparams.getClassid();
+//	    int examid = resultparams.getExamid();
+//		MarksDetails marksDetails = usersServices.getUsersMarksDetails(userid,classid,examid);
+//		if (marksDetails!=null){
+//			map.put("MarksDetails", marksDetails);
+//			map.put("message", "Got Data");
+//
+//		}else{
+//			map.put("message", "No Data");
+//	
+//		}
+//		return map;
+//       }
        
 	
 	

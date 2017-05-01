@@ -11,6 +11,10 @@ body {
 	color:black !important;
 }
 
+.announcement{
+	color: #1e767a !important;
+	font-weight: bold;
+}
 .list-group-item.active {
 	background-color: black !important;
 	border-color: #aed248;
@@ -54,6 +58,10 @@ padding-top: 15px;
 padding-left:8px;
 padding-right:8px;
 padding-bottom:15px;	
+}
+
+.body-hidden{
+	display: none;
 }
 
 /* .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus */
@@ -132,6 +140,23 @@ padding-bottom:15px;
 	 font: italic bold 12px/30px Georgia, serif !important;
 	 border-bottom: 1px solid #8ebabc !important;
 
+}
+
+.newstitle{
+    padding-bottom: 5px;
+    color: #1e767a !important;
+}
+
+.bytitle{
+	border-bottom: 1px solid #a5c8c9;
+    padding-bottom: 5px;
+    color: #1e767a !important;
+}
+
+.eventtitle{
+	border-bottom: 1px solid #a5c8c9;
+    padding-bottom: 5px;
+    color: #1e767a !important;
 }
 
 #containernew{

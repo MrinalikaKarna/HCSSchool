@@ -113,30 +113,35 @@
 <script>
 
 $(function () {
+	
 	$("#editor").shieldEditor({
         height: 260
     });
 	
     <c:forEach items="${BlogPostDetail}"  var="blogItem" >
     
-    newdiv = '<div class="panel panel-default">' + '<div class="panel-heading">' + '<h5 id="blogtitle">' + '${blogItem.blogtitle}' + '</br>' +
+    
+    
+    newdiv = '<div class="panel panel-default">' + '<div class="panel-heading">' + '<h5 class="blogtitle">' + '${blogItem.blogtitle}' + '</br>' +
     '${blogItem.userDetails.firstname}' + '</h5>' 
-	+ '</div>' + '<div class="panel-body" id="blogbody">' + '${blogItem.blogbody}' + '</div>' +
-	'<div class="text-center">' + '<a href="#" class="showme">' + '<span class="glyphicon glyphicon-plus">' +
-	'</span>' + 'Full Story' + '</a>' + '</div>' + '</div>';
+	+ '</div>' + '<div class="panel-body "  >' + jQuery.trim('${blogItem.blogbody}').substring(0, 50).trim(this) + '..' + '</div>' + 
+	'<div class="body-hidden">' + ('${blogItem.blogbody}') + '</div>' + 
+	'<a href="#" class="showme">' +  " Read More.." + '</a>'  +
+	 '</div>';
 	$("#blogpostbody").append(newdiv);
 
     </c:forEach>
 
 
     $("a.showme").click(function(){
-        $('.modal-title').html($("#blogtitle").html());
-        $('.modal-body').html($("#blogbody").html());
+    	
+        $('.modal-title').html($(this).closest(".panel").find('h5').html());
+        console.log($(this).closest(".panel").find('h6').html());
+        var blogbody = $(this).closest(".panel").find('.body-hidden').html();
+        $('.modal-body').html(blogbody);
         $('#blogModal').modal('show');
     });
 
-    
-    
     
 })
 </script>

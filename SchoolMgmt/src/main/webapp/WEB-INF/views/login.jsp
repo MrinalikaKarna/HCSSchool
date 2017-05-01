@@ -23,7 +23,7 @@
             <p id="profile-name" class="profile-name-card">HCS School</p>
             <s:form class="form-signin" commandName="userLoginData" action="users/welcome" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <s:input path="mobilenumber" type="tel" id="inputTel" class="form-control" placeholder="Mobile Number" ></s:input><br>
+                <s:input path="mobilenumber" type="text" id="inputTel" class="form-control" placeholder="Mobile Number" ></s:input><br>
                 <s:input path="password" type="password" id="inputPassword" class="form-control" placeholder="Password" ></s:input>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
             </s:form><!-- /form -->

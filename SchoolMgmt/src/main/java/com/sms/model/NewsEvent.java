@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,12 +50,28 @@ public class NewsEvent {
    	@Column(name = "category")
    	private String category;
     
-    @NotNull
-	@Column(name = "userid")
-	private int userid;
+    @ManyToOne
+    @JoinColumn(name="userid")   
+	private UserDetails userDetails;
+    
+//    @NotNull
+//	@Column(name = "userid")
+//	private int userid;
+    
+    
+    
+    
 
 	public int getNewsid() {
 		return newsid;
+	}
+
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
 	}
 
 	public void setNewsid(int newsid) {
@@ -100,13 +118,6 @@ public class NewsEvent {
 		this.eligibility = eligibility;
 	}
 
-	public int getUserid() {
-		return userid;
-	}
-
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
 
 	public String getCategory() {
 		return category;

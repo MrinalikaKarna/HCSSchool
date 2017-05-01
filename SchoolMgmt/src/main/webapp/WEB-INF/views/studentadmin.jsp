@@ -87,7 +87,7 @@
                 <s:input path="content" type="text" class="form-control" id="news-detail" placeholder="Enter News Body here"/>
               </div>
               
-              <s:input path="userid" type="hidden" value='${UserDetails.userid}'/>
+              <s:input path="userDetails.userid" type="hidden" value='${UserDetails.userid}'/>
 
               <button type="submit" class="btn btn-primary center-block">Submit News</button>
             </s:form>
@@ -130,12 +130,12 @@
               
               <div class="form-group">
                 <label for="event-eligibility">Eligibility Criteria</label>
-                <s:input path="content" type="text" class="form-control" id="event-eligibility" placeholder="Enter eligibility criteria here"/>
+                <s:input path="eligibility" type="text" class="form-control" id="event-eligibility" placeholder="Enter eligibility criteria here"/>
               </div>
               
               
               
-              <s:input path="userid" type="hidden" value='${UserDetails.userid}'/>
+              <s:input path="userDetails.userid" type="hidden" value='${UserDetails.userid}'/>
 
               <button type="submit" class="btn btn-primary center-block">Submit Event</button>
             </s:form>
@@ -176,7 +176,7 @@
                 <s:input path="content" type="text" class="form-control" id="news-detail" placeholder="Enter announcement details here"/>
               </div>
               
-              <s:input path="userid" type="hidden" value='${UserDetails.userid}'/>
+              <s:input path="userDetails.userid" type="hidden" value='${UserDetails.userid}'/>
 
               <button type="submit" class="btn btn-primary center-block">Submit Announcement</button>
             </s:form>
