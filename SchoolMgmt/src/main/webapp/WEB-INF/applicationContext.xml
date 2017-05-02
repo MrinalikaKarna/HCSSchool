@@ -72,6 +72,7 @@
 				  <value>com.sms.model.NewsEvent</value>
 				  <value>com.sms.model.MarksDetails</value>
 				  <value>com.sms.model.AttendanceDetails</value>
+				  <value>com.sms.model.EventParticipants</value>
 			</list>
 			</property>
 

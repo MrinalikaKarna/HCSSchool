@@ -25,8 +25,16 @@
                 <span id="reauth-email" class="reauth-email"></span>
                 <s:input path="mobilenumber" type="text" id="inputTel" class="form-control" placeholder="Mobile Number" ></s:input><br>
                 <s:input path="password" type="password" id="inputPassword" class="form-control" placeholder="Password" ></s:input>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" id="submitBtn" type="submit">Sign in</button>
             </s:form><!-- /form -->
+            
+<!--             <form> -->
+<%--                 <span id="reauth-email" class="reauth-email"></span> --%>
+<!--                 <input type="text" id="inputTel" class="form-control" placeholder="Mobile Number"><br> -->
+<!--                 <input type="password" id="inputPassword" class="form-control" placeholder="Password"> -->
+<!--                 <button class="btn btn-lg btn-primary btn-block btn-signin" id="submitBtn" type="submit">Sign in</button> -->
+<!--             </form> -->
+            
             <a href="#" class="forgot-password">
                 Forgot the password?
             </a>
@@ -40,6 +48,29 @@
 	   if('${Failed}'=='failed'){
 		   alert("Enter correct details..");
 	   }
+	   
+// 	    $("#submitBtn").click(function(){
+// // 	     	alert($('#inputPassword').val());
+// 	    	 $.ajax({
+// 	         	type:"POST",
+// 	             url:"users/welcome",
+// 	             data: JSON.stringify({
+// 	      		   'mobilenumber':$('#inputTel').val(),
+// 	      		   'password':$('#inputPassword').val()
+// 	    			   }),
+// 	             dataType: "json",
+// 	             contentType: "application/json",
+	             
+// 	             success:function(response){
+// 	            	 window.location.href = '${pageContext.servletContext.contextPath}/users/Hello';
+// 	             },
+// 	             failure: function(response){
+// 	                alert(response.message);
+	                
+// 	             }
+// 	         });
+	    	 
+// 	    });
    });
   </script> 
 </body>

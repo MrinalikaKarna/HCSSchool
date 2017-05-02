@@ -21,11 +21,14 @@ public class EventParticipants {
 	
 	@ManyToOne
     @JoinColumn(name="userid")
-	private UserDetails userDeatails;
+	private UserDetails userDetails;
 	
 	@ManyToOne
     @JoinColumn(name="newsid")
 	private NewsEvent newsEvent;
+	
+	@Column(name = "approvalstatus")
+	private String approvalstatus;
 
 	public int getParticipantid() {
 		return participantid;
@@ -35,12 +38,14 @@ public class EventParticipants {
 		this.participantid = participantid;
 	}
 
-	public UserDetails getUserDeatails() {
-		return userDeatails;
+   
+
+	public UserDetails getUserDetails() {
+		return userDetails;
 	}
 
-	public void setUserDeatails(UserDetails userDeatails) {
-		this.userDeatails = userDeatails;
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
 	}
 
 	public NewsEvent getNewsEvent() {
@@ -49,6 +54,14 @@ public class EventParticipants {
 
 	public void setNewsEvent(NewsEvent newsEvent) {
 		this.newsEvent = newsEvent;
+	}
+
+	public String getApprovalstatus() {
+		return approvalstatus;
+	}
+
+	public void setApprovalstatus(String approvalstatus) {
+		this.approvalstatus = approvalstatus;
 	}
 	
 	

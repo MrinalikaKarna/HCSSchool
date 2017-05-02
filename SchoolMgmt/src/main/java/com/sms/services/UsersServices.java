@@ -5,6 +5,7 @@ import java.util.List;
 import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
+import com.sms.model.EventParticipants;
 import com.sms.model.ExamDetails;
 import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
@@ -24,12 +25,14 @@ public interface UsersServices {
 	public List<VisualArtStore> getVisualArtStoreList();
 	public List<BlogPostStore> getBlogPostStoreList();
 	public List<UserDetails> getUserClassDetails(int classid);
+	public List<String> getEventTitleList();
 	public List<byte[]> getAllImages();
 	public boolean delete(UsersModel usersModel);
 	public boolean SaveorUpdate(UsersModel usersModel);
 	public UsersModel doLogin(UsersModel usersModel);
 	public UserDetails getUserDetails(long mobilenumber);
 	public boolean saveUserLeaves(Leaves leaves);
+	public boolean addParticipantsDetails(EventParticipants eventParticipants);
 	public boolean saveNewsEvent(NewsEvent newsEvent);
 	public boolean saveUserUpdateDetails(UserDetails userDetails);
 	public boolean save(VisualArtStore uploadFile);
@@ -39,4 +42,6 @@ public interface UsersServices {
 	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails);
 	public boolean saveUserFeedbackDetails(FeedbackRegister feedbackRegister);
 	public List<FeedbackRegister> getFeedbackDetailsList(int userid);
+	public List<EventParticipants> getEventParticipantsList();
+	public boolean approveParticipantsDetails(EventParticipants eventParticipants);
 }

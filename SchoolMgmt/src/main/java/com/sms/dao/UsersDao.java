@@ -5,6 +5,7 @@ import java.util.List;
 import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
+import com.sms.model.EventParticipants;
 import com.sms.model.ExamDetails;
 import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
@@ -24,6 +25,8 @@ public interface UsersDao {
 	public List<NewsEvent> getNewsEventList();
 	public List<VisualArtStore> getVisualArtStoreList();
 	public List<BlogPostStore> getBlogPostStoreList();
+	public List<EventParticipants> getEventParticipantsList();
+	public List<String> getEventTitleList();
 	public List<byte[]> getAllImages();
 	public List<UserDetails> getUserClassDetails(int classid);
 	public boolean delete(UsersModel usersModel);
@@ -32,6 +35,7 @@ public interface UsersDao {
 	public UserDetails getUserDetails(long mobilenumber);
 	public boolean saveUserLeaves(Leaves leaves);
 	public boolean saveNewsEvent(NewsEvent newsEvent);
+	public boolean addParticipantsDetails(EventParticipants eventParticipants);
 	public boolean saveUserUpdateDetails(UserDetails userDetails);
 	public boolean save(VisualArtStore uploadFile);
 	public boolean save(BlogPostStore blogpostFile);
@@ -40,6 +44,7 @@ public interface UsersDao {
 	public boolean saveUserAttendaceUpdateDetails(AttendanceDetails attendanceDetails);
 	public boolean saveUserFeedbackDetails(FeedbackRegister feedbackRegister);
 	public List<FeedbackRegister> getFeedbackDetailsList(int userid);
+	public boolean approveParticipantsDetails(EventParticipants eventParticipants);
 
 
 }

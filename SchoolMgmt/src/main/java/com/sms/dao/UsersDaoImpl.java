@@ -19,6 +19,7 @@ import com.google.common.collect.Lists;
 import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
+import com.sms.model.EventParticipants;
 import com.sms.model.ExamDetails;
 import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
@@ -450,6 +451,86 @@ public class UsersDaoImpl implements UsersDao {
 			e.printStackTrace();
 		}
 		return userFeedbackDetails;
+	}
+
+	public boolean addParticipantsDetails(EventParticipants eventParticipants) {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		try {
+			session1.save(eventParticipants);
+			tx.commit();
+			session1.close();
+			return true;
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<EventParticipants> getEventParticipantsList() {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		String hql = "from com.sms.model.EventParticipants";
+		Query query = session1.createQuery(hql);
+		List<EventParticipants> eventParticipantsData = (List<EventParticipants>) query.list();
+		List<EventParticipants> eventParticipantsDatas = Lists.reverse(eventParticipantsData);
+
+		try {
+			tx.commit();
+			session1.close();
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+		}
+		return eventParticipantsDatas;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<String> getEventTitleList() {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		String hql = "select distinct newsEvent.title from com.sms.model.EventParticipants";
+		Query query = session1.createQuery(hql);
+		List<String> eventTitleData = (List<String>) query.list();
+
+		try {
+			tx.commit();
+			session1.close();
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+		}
+		return eventTitleData;
+	}
+
+	public boolean approveParticipantsDetails(EventParticipants eventParticipants) {
+		Session session1 = session.openSession();
+		Transaction tx = session1.beginTransaction();
+		String hql = "UPDATE com.sms.model.EventParticipants set approvalstatus = :approvalstatus " + 
+				"WHERE participantid = :participantid AND userDetails.userid = :userid AND"
+				+ " newsEvent.newsid = :newsid" ;
+		Query query = session1.createQuery(hql);
+		query.setParameter("approvalstatus", "Approved");
+		query.setParameter("participantid", eventParticipants.getParticipantid());
+		query.setParameter("userid", eventParticipants.getUserDetails().getUserid());
+		query.setParameter("newsid", eventParticipants.getNewsEvent().getNewsid());
+		query.executeUpdate();
+
+		try {
+			tx.commit();
+			session1.close();
+			return true;
+		} catch (Exception e) {
+			tx.rollback();
+			session1.close();
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

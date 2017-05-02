@@ -34,6 +34,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
+import com.sms.model.EventParticipants;
 import com.sms.model.ExamDetails;
 import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
@@ -64,7 +65,7 @@ public class Users {
 
 	
 	@RequestMapping(value="/welcome", method=RequestMethod.POST)
-	public String loginUser(ModelMap model, @ModelAttribute("userLoginData") UsersModel usersModel, HttpSession newsession, RedirectAttributes redirectAttributes)
+	public String loginUser(@ModelAttribute("userLoginData") UsersModel usersModel, ModelMap model, HttpSession newsession, RedirectAttributes redirectAttributes)
 	{if(usersModel.getMobilenumber()!=0 && usersModel.getPassword()!=null)
 	{ 
 		UsersModel usersModelnew = usersServices.doLogin(usersModel);			
@@ -98,6 +99,15 @@ public class Users {
 	public String showStudentDetails(ModelMap model){
 		model.addAttribute("MarksDetails", new MarksDetails());
 		return "marksdetails";	
+	}
+	
+	@RequestMapping(value="/eventparticipants", method=RequestMethod.GET)
+	public String showEventParticipantsDetails(ModelMap model){
+		List<EventParticipants> eventParticipants = usersServices.getEventParticipantsList();
+	    model.addAttribute("EventParticipantsList", eventParticipants);
+	    List<String> eventTitle = usersServices.getEventTitleList();
+	    model.addAttribute("EventTitleList", eventTitle);
+		return "eventparticipants";	
 	}
 	
 	@RequestMapping(value="/feedbacksheet", method=RequestMethod.GET)
@@ -157,23 +167,36 @@ public class Users {
 			
 		}
 	
-//	@RequestMapping(value="/getResultDetails",method=RequestMethod.POST)
-//	public @ResponseBody Map<String,Object> getResultDetails(@RequestBody ResultParams resultparams) 
-//	{   Map<String,Object> map = new HashMap<String,Object>(); 
-//	    int userid = resultparams.getUserid();
-//	    int classid = resultparams.getClassid();
-//	    int examid = resultparams.getExamid();
-//		MarksDetails marksDetails = usersServices.getUsersMarksDetails(userid,classid,examid);
-//		if (marksDetails!=null){
-//			map.put("MarksDetails", marksDetails);
-//			map.put("message", "Got Data");
-//
-//		}else{
-//			map.put("message", "No Data");
-//	
-//		}
-//		return map;
-//       }
+	@RequestMapping(value="/addparticipantdetails",method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> addParticipantDetails(@RequestBody EventParticipants eventParticipants) 
+	{   Map<String,Object> map = new HashMap<String,Object>(); 
+	    eventParticipants.setApprovalstatus("Pending");
+		boolean participantUpdateStatus = usersServices.addParticipantsDetails(eventParticipants);
+		if (participantUpdateStatus==true){
+			map.put("ParticipantUpdateStatus", participantUpdateStatus);
+			map.put("message", "Your participation has been submitted..");
+
+		}else{
+			map.put("message", "Error submitting your participation");
+	
+		}
+		return map;
+       }
+	
+	@RequestMapping(value="/approveparticipation",method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> approveParticipation(@RequestBody EventParticipants eventParticipants) 
+	{   Map<String,Object> map = new HashMap<String,Object>(); 
+		boolean approvalUpdateStatus = usersServices.approveParticipantsDetails(eventParticipants);
+		if (approvalUpdateStatus==true){
+			map.put("ParticipantUpdateStatus", approvalUpdateStatus);
+			map.put("message", "Approved..");
+
+		}else{
+			map.put("message", "Error approving");
+	
+		}
+		return map;
+       }
        
 	
 	

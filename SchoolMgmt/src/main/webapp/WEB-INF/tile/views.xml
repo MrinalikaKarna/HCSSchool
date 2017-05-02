@@ -35,6 +35,10 @@
   <put-attribute name="body" value="/WEB-INF/views/adduserdetails.jsp" />
  </definition>
  
+  <definition name="eventparticipants" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/eventparticipants.jsp" />
+ </definition>
+ 
   <definition name="teachersfeedback" extends="baseLayout">
   <put-attribute name="body" value="/WEB-INF/views/teachersfeedback.jsp" />
  </definition>

@@ -9,6 +9,7 @@ import com.sms.dao.UsersDao;
 import com.sms.model.AttendanceDetails;
 import com.sms.model.BlogPostStore;
 import com.sms.model.ClassDetails;
+import com.sms.model.EventParticipants;
 import com.sms.model.ExamDetails;
 import com.sms.model.FeedbackRegister;
 import com.sms.model.Leaves;
@@ -120,6 +121,22 @@ public class UsersServiceImpl implements UsersServices {
 
 	public List<FeedbackRegister> getFeedbackDetailsList(int userid) {
 		return usersDao.getFeedbackDetailsList(userid);
+	}
+
+	public boolean addParticipantsDetails(EventParticipants eventParticipants) {
+		return usersDao.addParticipantsDetails(eventParticipants);
+	}
+
+	public List<EventParticipants> getEventParticipantsList() {
+		return usersDao.getEventParticipantsList();
+	}
+
+	public List<String> getEventTitleList() {
+		return usersDao.getEventTitleList();
+	}
+
+	public boolean approveParticipantsDetails(EventParticipants eventParticipants) {
+		return usersDao.approveParticipantsDetails(eventParticipants);
 	}
 
 }

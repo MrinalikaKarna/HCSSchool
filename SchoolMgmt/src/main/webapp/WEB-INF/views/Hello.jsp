@@ -95,8 +95,8 @@ $(function() {
 	 '<p>' + '<b>' + 'Event Dates: ' + '</b>' + '${myItem.fromdate}' + '</p>'
 	  + '<p>' + '<b>' + 'Event Details: ' + '</b>' + '${myItem.content}' + '</p>'
 	  + '<p>' + '<b>' + 'Eligibility: ' + '</b>' + '${myItem.eligibility}' + '</p>'
-	  + '<p hidden id="NewsId">' + '${myItem.newsid}' + '</p>'
-	  + '<p hidden id="UserId">' + '${UserDetails.userid}' + '</p>'
+	  + '<p id="NewsId" hidden>' + '${myItem.newsid}' + '</p>'
+	  + '<p id="UserId" hidden>' + '${UserDetails.userid}' + '</p>'
 	  + '<div class="text-left">' + '<b>' + 'Click here to participate..  ' + '</b>' +
 	  '<a href="#" class="participateEvent btn btn-info">' + 'Participate' + '</a>' + '</div>' + '</div>';
 	 $("#newseventdiv").append(newdiv);	
@@ -125,12 +125,13 @@ $(function() {
 
     
     $("a.participateEvent").click(function(){
+//     	alert($(this).closest('.well').find('#NewsId').text());
     	 $.ajax({
          	type:"POST",
              url:"addparticipantdetails",
              data: JSON.stringify({
-      		   'userDetails':{'userid':$(this).closest('tr').find('#UserId').val()},
-      		   'newsEvent':{'newsid':$(this).closest('tr').find('#NewsId').val()}
+      		   'userDetails':{'userid':$(this).closest('.well').find('#UserId').text()},
+      		   'newsEvent':{'newsid':$(this).closest('.well').find('#NewsId').text()}
     			   }),
              dataType: "json",
              contentType: "application/json",

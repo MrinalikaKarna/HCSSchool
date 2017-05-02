@@ -54,7 +54,8 @@
                     <i class="fa fa-bullhorn fa-2x"></i>
                     <br />
                     Create <br/>
-                    Announcement
+                    Announce- </br>
+                    ment
                 </button>
                 <button data-toggle="modal" data-target="#myItemsModal" class="btn btn-squared-default btn-primary">
                     <i class="fa fa-folder fa-2x"></i>
@@ -62,6 +63,15 @@
                     My <br/>
                     Items
                 </button>
+                <a href="<%=request.getContextPath() %>/users/eventparticipants?method=GET&param2=${UserDetails.userid}">
+                <button data-toggle="modal" class="btn btn-squared-default btn-primary">
+                    <i class="fa fa-folder fa-2x"></i>
+                    <br />
+                    Event <br/>
+                    Participation <br/>
+                    List
+                </button>
+                </a>
 
             </p>
        
