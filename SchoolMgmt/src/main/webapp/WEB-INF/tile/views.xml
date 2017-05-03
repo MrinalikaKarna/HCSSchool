@@ -15,8 +15,8 @@
   <put-attribute name="body" value="/WEB-INF/views/reportcard.jsp" />
  </definition>
  
-  <definition name="leaves" extends="baseLayout">
-  <put-attribute name="body" value="/WEB-INF/views/leaves.jsp" />
+  <definition name="leavesandattendance" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/leavesandattendance.jsp" />
  </definition>
  
  <definition name="studentadmin" extends="baseLayout">
@@ -29,6 +29,10 @@
  
  <definition name="supportadmin" extends="baseLayout">
   <put-attribute name="body" value="/WEB-INF/views/supportadmin.jsp" />
+ </definition>
+ 
+ <definition name="attendancetracker" extends="baseLayout">
+  <put-attribute name="body" value="/WEB-INF/views/attendancetracker.jsp" />
  </definition>
  
  <definition name="adduserdetails" extends="baseLayout">

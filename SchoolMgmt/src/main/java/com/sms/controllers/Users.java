@@ -242,16 +242,16 @@ public class Users {
 		boolean leaveUpdateStatus = usersServices.saveUserLeaves(leaves);
 		if (leaveUpdateStatus==true){
 			model.addAttribute("Status", true);
-			return "leaves";
+			return "leavesandattendance";
 		}else{
 			model.addAttribute("Status", false);
-			return "leaves";
+			return "leavesandattendance";
 			
 		}
 	}else if(leaves.getFromdate()== null && leaves.getTodate()== null && leaves.getReason().isEmpty()){
-		return "leaves";
+		return "leavesandattendance";
 	}
-	return "leaves";
+	return "leavesandattendance";
 	
 	}
 	
@@ -429,13 +429,20 @@ public class Users {
 	
 	
 	
-	@RequestMapping(value="/leaves",method=RequestMethod.GET)
+	@RequestMapping(value="/leavesandattendance",method=RequestMethod.GET)
 	public String showLeaves(ModelMap model, @RequestParam("param3") int userid)
 	{   
 		model.addAttribute("userId", userid);
 		model.addAttribute("userLeaveData", new Leaves());
 		model.addAttribute("MenuStatus","Leaves");
-        return "leaves";
+        return "leavesandattendance";
+         }
+	
+	@RequestMapping(value="/attendancetracker",method=RequestMethod.GET)
+	public String showAttendanceTracker(ModelMap model)
+	{   
+		model.addAttribute("MenuStatus","Leaves");
+        return "attendancetracker";
          }
 	
 	@RequestMapping(value="/teachersfeedback",method=RequestMethod.GET)

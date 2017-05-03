@@ -50,8 +50,8 @@
 					 <span class="glyphicon glyphicon-user" aria-hidden="true" ></span> My Profile </a>
 					 <a href="<%=request.getContextPath() %>/users/reportcard?method=GET&param2=${UserDetails.userid}" class="list-group-item" id="menu3">
 						<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Report Card</a> 
-					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu4">
-						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Leaves and Calendar</a>
+					<a href="<%=request.getContextPath() %>/users/leavesandattendance?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu4">
+						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Leaves and Attendance</a>
 					<a href="<%=request.getContextPath() %>/users/leaves?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu8">
 						<span class="glyphicon glyphicon-th" aria-hidden="true"></span> Time Table</a>
 					<a href="<%=request.getContextPath() %>/users/teachersfeedback?method=GET&param3=${UserDetails.userid}" class="list-group-item" id="menu9">
